@@ -1,0 +1,497 @@
+//-----------------------------------------------------------
+// BASE
+//-----------------------------------------------------------
+html {
+	@include box-sizing(border-box);
+	font-size: 100%
+}
+
+body {
+	background-color: $dark-color;
+	color: $light-color;
+	font-family: $primary-font-regular;
+	font-size: $base-font-size;
+	line-height: 1.6;
+}
+
+
+//-----------------------------------------------------------
+// BLOCKQUOTE
+//-----------------------------------------------------------
+blockquote {
+	border-left: size(4) solid $dark-color;
+	margin-left: 0;
+	margin-right: 0;
+	padding: $spacing-16 $spacing-24;
+
+	*:last-child {
+		margin-bottom: 0;
+	}
+}
+
+
+//-----------------------------------------------------------
+// BUTTONS
+//-----------------------------------------------------------
+.button,
+button,
+input[type='button'],
+input[type='reset'],
+input[type='submit'] {
+	padding: 0 $spacing-16;
+	display: inline-block;
+	height: $spacing-56;
+
+	background-color: $accent-red-color;
+	@include border-radius(size(4));
+	border: size(1) solid $accent-red-color;
+	color: $light-color;
+
+	font-family: $primary-font-bold;
+	font-size: $base-font-size;
+	text-align: center;
+	text-transform: uppercase;
+	// line-height: $spacing-56;
+
+	cursor: pointer;
+	white-space: nowrap;
+	@include transition (all 0.2s ease);
+
+	&:hover,
+	&:focus {
+		background-color: $light-color;
+		border-color: $light-color;
+		color: $accent-red-color;
+		outline: 0;
+	}
+
+	&[disabled] {
+		cursor: default;
+		@include opacity(0.5);
+
+		&:focus,
+		&:hover {
+			background-color: $accent-red-color;
+			border-color: $accent-red-color;
+		}
+	}
+
+	&.button-outline {
+		background-color: transparent;
+		border-color: $dark-color;
+		color: $dark-color;
+
+		&:hover,
+		&:focus {
+			background-color: transparent;
+			border-color: $light-color;
+			color: $light-color;
+		}
+
+		&[disabled] {
+			&:focus,
+			&:hover {
+				border-color: inherit;
+				color: $dark-color;
+			}
+		}
+	}
+
+	&.button-clear {
+		background-color: transparent;
+		border-color: transparent;
+		color: $dark-color;
+
+		&:focus,
+		&:hover {
+			background-color: transparent;
+			border-color: transparent;
+			color: $accent-red-color;
+		}
+
+		&[disabled] {
+			&:focus,
+			&:hover {
+				color: $dark-color;
+			}
+		}
+	}
+}
+
+
+//-----------------------------------------------------------
+// CODE
+//-----------------------------------------------------------
+code {
+	margin: 0 $spacing-8;
+	padding: $spacing-8 $spacing-16;
+	background-color: $dark-color;
+	@include border-radius(size(4));
+	font-size: $base-font-size;
+	white-space: nowrap;
+}
+
+pre {
+	background-color: $dark-color;
+	border-left: size(4) solid $accent-red-color;
+	overflow-y: hidden;
+
+	& > code {
+		display: block;
+		padding: $spacing-16 $spacing-24;
+		@include border-radius(0);
+		white-space: pre;
+	}
+}
+
+
+
+
+//-----------------------------------------------------------
+// DIVIDER
+//-----------------------------------------------------------
+hr {
+	margin: $spacing-48 0;
+	border: 0;
+	border-top: size(1) solid $dark-color;
+}
+
+
+
+
+//-----------------------------------------------------------
+// FORMS
+//-----------------------------------------------------------
+input[type='email'],
+input[type='number'],
+input[type='password'],
+input[type='search'],
+input[type='tel'],
+input[type='text'],
+input[type='url'],
+input[type='color'],
+input[type='date'],
+input[type='month'],
+input[type='week'],
+input[type='datetime'],
+input[type='datetime-local'],
+input:not([type]),
+textarea,
+select {
+	@include appearance(none); // removes default styles on some iOS inputs
+	@include box-sizing(inherit);
+	width: 100%;
+	height: size(48);
+	padding: $spacing-8 $spacing-16;
+	background-color: transparent;
+	border: size(1) solid $light-color;
+	@include border-radius(size(4));
+	@include box-shadow(0, 0, 0, transparent);
+
+	@include transition (all 0.2s ease);
+
+	&:focus {
+		border-color: $accent-red-color;
+		outline: 0;
+	}
+}
+
+textarea {
+	min-height: $spacing-88;
+	resize: none;
+}
+
+select {
+	background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" height="14" viewBox="0 0 29 14" width="29"><path fill="#FFFFFF" d="M9.37727 3.625l5.08154 6.93523L19.54036 3.625"/></svg>') center right no-repeat;
+	padding-right: $spacing-48;
+
+	&:focus {
+		background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" height="14" viewBox="0 0 29 14" width="29"><path fill="#D02746" d="M9.37727 3.625l5.08154 6.93523L19.54036 3.625"/></svg>');
+	}
+}
+
+label,
+legend {
+	display: block;
+	font-size: $base-font-size;
+	font-weight: 400;
+	margin-bottom: $spacing-8;
+}
+
+fieldset {
+	padding: 0;
+	border-width: 0;
+}
+
+input[type='checkbox'],
+input[type='radio'] {
+	display: inline;
+	margin-bottom: 0;
+}
+
+.label-inline {
+	display: inline-block;
+	margin-left: $spacing-8;
+	font-weight: 400;
+}
+
+
+//-----------------------------------------------------------
+// IMAGES
+//-----------------------------------------------------------
+img {
+	display: block;
+	max-width: 100%;
+}
+
+
+//-----------------------------------------------------------
+// LINKS
+//-----------------------------------------------------------
+a {
+	color: $accent-red-color;
+	outline: none;
+	text-decoration: none;
+	@include transition (all 0.2s ease);
+
+	&:hover,
+	&:focus {
+		color: $light-color;
+	}
+}
+
+
+//-----------------------------------------------------------
+// LISTS
+//-----------------------------------------------------------
+dl,
+ol,
+ul {
+	padding-left: 0;
+	margin-top: 0;
+	list-style: none;
+
+	dl,
+	ol,
+	ul {
+		font-size: 90%;
+		margin: $spacing-24 0 $spacing-24 $spacing-48;
+	}
+}
+
+ul {
+	list-style: circle inside;
+}
+
+ol {
+	list-style: decimal inside;
+}
+
+
+//-----------------------------------------------------------
+// SELECTION
+//-----------------------------------------------------------
+::-moz-selection {
+	background-color: $accent-red-color;
+}
+
+::selection {
+	background-color: $accent-red-color;
+}
+
+
+//-----------------------------------------------------------
+// SPACING
+//-----------------------------------------------------------
+.button,
+button,
+dd,
+dt,
+li {
+	margin-bottom: $spacing-16;
+}
+
+fieldset,
+input,
+select,
+textarea {
+	margin-bottom: $spacing-24;
+}
+
+blockquote,
+dl,
+figure,
+form,
+ol,
+p,
+pre,
+table,
+ul {
+	margin-bottom: $spacing-40;
+}
+
+
+//-----------------------------------------------------------
+// TABLES
+//-----------------------------------------------------------
+table {
+	border-spacing: 0;
+	width: 100%;
+}
+
+th,
+td {
+	border-bottom: size(1) solid $light-color;
+	padding: $spacing-16 $spacing-24;
+	text-align: left;
+
+	&:first-child {
+		padding-left: 0;
+	}
+
+	&:last-child {
+		padding-right: 0;
+	}
+}
+
+@media screen and (max-width: $breakpoint-1) {
+	table {
+		border-spacing: 0;
+		display: flex;
+		width: 100%;
+
+		thead {
+			border-right: solid .1rem $light-color;
+
+			td, th {
+				padding-left: 0;
+
+				&:first-child {
+					padding-left: 0;
+				}
+
+				&:last-child {
+					padding-right: $spacing-24;
+				}
+			}
+		}
+
+		tbody {
+			display: flex;
+			overflow-x: auto;
+			white-space: nowrap;
+
+			tr {
+				border-right: solid (size(1)) $light-color;
+
+				&:last-child {
+					border-right: none;
+				}
+			}
+		}
+
+		td, th {
+			display: block;
+
+			&:first-child {
+				padding-left: $spacing-24;
+			}
+
+			&:last-child {
+				padding-right: $spacing-24;
+			}
+		}
+	}
+}
+
+
+//-----------------------------------------------------------
+// TYPOGRAPHY
+//-----------------------------------------------------------
+p {
+	margin-top: 0;
+}
+
+b,
+strong {
+	font-weight: bold;
+}
+
+em {
+	font-style: italic;
+}
+
+small {
+	font-size: $small-font-size;
+}
+
+mark {
+	background-color: $accent-red-color;
+	color: $light-color;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin-top: 0;
+	margin-bottom: $spacing-32;
+	font-family: $primary-font-bold;
+	font-weight: 300;
+	letter-spacing: size(-1);
+}
+
+h1 {
+	font-size: size(64);
+	line-height: 1.2;
+}
+
+h2 {
+	font-size: size(56);
+	line-height: 1.25;
+}
+
+h3 {
+	font-size: size(44);
+	line-height: 1.3;
+}
+
+h4 {
+	font-size: size(32);
+	line-height: 1.35;
+}
+
+h5 {
+	font-size: size(24);
+	line-height: 1.5;
+}
+
+h6 {
+	font-size: size(16);
+	line-height: 1.4;
+}
+
+
+//-----------------------------------------------------------
+// UTILITIES
+//-----------------------------------------------------------
+.clearfix {
+	clear: both;
+}
+
+.float-left {
+	float: left
+}
+
+.float-right {
+	float: right
+}
+
+.text-left {
+	text-align: left;
+}
+
+.text-center {
+	text-align: center;
+}
+
+.text-right {
+	text-align: right;
+}

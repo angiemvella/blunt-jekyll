@@ -1,0 +1,324 @@
+//-----------------------------------------------------------
+// MIXINS
+//-----------------------------------------------------------
+// CSS3 Browser Prefixes
+//-----------------------------------------------------------
+// Appereance
+@mixin appearance($value) {
+	-webkit-appearance: $value;
+    	-moz-appearance: $value;
+    		appearance: $value;
+}
+
+// Backface Visibility
+@mixin backface-visibility($value) {
+	-webkit-backface-visibility: $value;
+		-moz-backface-visibility: $value;
+			backface-visibility: $value;
+}
+
+// Background Gradient
+@mixin linear-gradient($from, $to) {
+	background-color: $to;
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, $from), color-stop(1, $to));
+	background-image: 	-webkit-linear-gradient($from, $to);
+	background-image:		-moz-linear-gradient($from, $to);
+	background-image:			-o-linear-gradient($from, $to);
+	background-image:				-ms-linear-gradient($from, $to);
+	background-image:					linear-gradient($from, $to);
+}
+
+// Border Radius
+@mixin border-radius($radius) {
+	-webkit-border-radius: $radius;
+		-moz-border-radius: $radius;
+			-o-border-radius: $radius;
+				border-radius: $radius;
+}
+
+// Box Shadow
+@mixin box-shadow($x, $y, $blur, $color) {
+	-webkit-box-shadow: $x $y $blur $color;
+		-moz-box-shadow: $x $y $blur $color;
+			box-shadow: $x $y $blur $color;
+}
+
+// Box Sizing
+@mixin box-sizing($value) {
+	-webkit-box-sizing: $value;
+		-moz-box-sizing: $value;
+			box-sizing: $value;
+}
+
+// Opacity
+@mixin opacity($opacity) {
+	opacity: $opacity;
+	$opacity-ie: $opacity * 100;
+	filter: alpha(opacity=$opacity-ie); // IE8-
+}
+
+// Transform
+@mixin transform($values) {
+	-webkit-transform: $values;
+		-moz-transform: $values;
+			-o-transform: $values;
+				transform: $values;
+}
+
+// Transitions
+@mixin transition($args) {
+	-webkit-transition: $args;
+		-moz-transition: $args;
+			-o-transition: $args;
+				transition: $args;
+}
+
+// Animations
+@mixin animation($values) {
+	-webkit-animation: #{$values};
+		-moz-animation: #{$values};
+			-ms-animation: #{$values};
+				-o-animation: #{$values};
+					animation: #{$values};
+}
+
+// Keyframes
+@mixin keyframes($animation-name) {
+    @-webkit-keyframes #{$animation-name} { @content; }
+    @-moz-keyframes #{$animation-name} { @content; }
+    @-ms-keyframes #{$animation-name} { @content; }
+    @-o-keyframes #{$animation-name} { @content; }
+    @keyframes #{$animation-name} { @content; }
+}
+
+
+//-----------------------------------------------------------
+// FLEXBOX Browser Prefixes
+//-----------------------------------------------------------
+// Flexbox
+@mixin flexbox {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flexbox;
+	display: flex;
+}
+
+@mixin inline-flex {
+	display: -webkit-inline-box;
+	display: -webkit-inline-flex;
+	display: -moz-inline-flex;
+	display: -ms-inline-flexbox;
+	display: inline-flex;
+}
+
+// Flex Direction
+@mixin flex-direction($value: row) {
+	@if $value == row-reverse {
+		-webkit-box-direction: reverse;
+		-webkit-box-orient: horizontal;
+	} @else if $value == column {
+		-webkit-box-direction: normal;
+		-webkit-box-orient: vertical;
+	} @else if $value == column-reverse {
+		-webkit-box-direction: reverse;
+		-webkit-box-orient: vertical;
+	} @else {
+		-webkit-box-direction: normal;
+		-webkit-box-orient: horizontal;
+	}
+	-webkit-flex-direction: $value;
+	-moz-flex-direction: $value;
+	-ms-flex-direction: $value;
+	flex-direction: $value;
+}
+
+// Justify Content
+@mixin justify-content($value: flex-start) {
+	@if $value == flex-start {
+		-webkit-box-pack: start;
+		-ms-flex-pack: start;
+	} @else if $value == flex-end {
+		-webkit-box-pack: end;
+		-ms-flex-pack: end;
+	} @else if $value == space-between {
+		-webkit-box-pack: justify;
+		-ms-flex-pack: justify;
+	} @else if $value == space-around {
+		-ms-flex-pack: distribute;
+	} @else {
+		-webkit-box-pack: $value;
+		-ms-flex-pack: $value;
+	}
+	-webkit-justify-content: $value;
+	-moz-justify-content: $value;
+	justify-content: $value;
+}
+
+// Align Items
+@mixin align-items($value: stretch) {
+	@if $value == flex-start {
+		-webkit-box-align: start;
+		-ms-flex-align: start;
+	} @else if $value == flex-end {
+		-webkit-box-align: end;
+		-ms-flex-align: end;
+	} @else {
+		-webkit-box-align: $value;
+		-ms-flex-align: $value;
+	}
+	-webkit-align-items: $value;
+	-moz-align-items: $value;
+	align-items: $value;
+}
+
+// Flex Wrap
+@mixin flex-wrap($value: nowrap) {
+	-webkit-flex-wrap: $value;
+	-moz-flex-wrap: $value;
+	@if $value == nowrap {
+		-ms-flex-wrap: none;
+	} @else {
+		-ms-flex-wrap: $value;
+	}
+	flex-wrap: $value;
+}
+
+// Align Content
+@mixin align-content($value: stretch) {
+	// No Webkit Box Fallback.
+	-webkit-align-content: $value;
+	-moz-align-content: $value;
+	@if $value == flex-start {
+		-ms-flex-line-pack: start;
+	} @else if $value == flex-end {
+		-ms-flex-line-pack: end;
+	} @else {
+		-ms-flex-line-pack: $value;
+	}
+	align-content: $value;
+}
+
+// Order
+@mixin order($int: 0) {
+	-webkit-box-ordinal-group: $int + 1;
+	-webkit-order: $int;
+	-moz-order: $int;
+	-ms-flex-order: $int;
+	order: $int;
+}
+
+// Align Self
+@mixin align-self($value: auto) {
+	// No Webkit Box Fallback.
+	-webkit-align-self: $value;
+	-moz-align-self: $value;
+	@if $value == flex-start {
+		-ms-flex-item-align: start;
+	} @else if $value == flex-end {
+		-ms-flex-item-align: end;
+	} @else {
+		-ms-flex-item-align: $value;
+	}
+	align-self: $value;
+}
+
+// Flex
+@mixin flex($fg: 1, $fs: null, $fb: null) {
+
+	// Set a variable to be used by box-flex properties
+	$fg-boxflex: $fg;
+
+	// Box-Flex only supports a flex-grow value so let's grab the
+	// first item in the list and just return that.
+	@if type-of($fg) == 'list' {
+		$fg-boxflex: nth($fg, 1);
+	}
+
+	-webkit-box-flex: $fg-boxflex;
+	-webkit-flex: $fg $fs $fb;
+	-moz-box-flex: $fg-boxflex;
+	-moz-flex: $fg $fs $fb;
+	-ms-flex: $fg $fs $fb;
+	flex: $fg $fs $fb;
+}
+
+// Flex Grow
+@mixin flex-grow($int: 0) {
+	-webkit-box-flex: $int;
+	-webkit-flex-grow: $int;
+	-moz-flex-grow: $int;
+	-ms-flex-positive: $int;
+	flex-grow: $int;
+}
+
+// Flex Shrink
+@mixin flex-shrink($int: 1) {
+	-webkit-flex-shrink: $int;
+	-moz-flex-shrink: $int;
+	-ms-flex-negative: $int;
+	flex-shrink: $int;
+}
+
+// Flex Basis
+@mixin flex-basis($value: auto) {
+	-webkit-flex-basis: $value;
+	-moz-flex-basis: $value;
+	-ms-flex-preferred-size: $value;
+	flex-basis: $value;
+}
+
+
+//-----------------------------------------------------------
+// MISC Helpers
+//-----------------------------------------------------------
+
+// Define default font size for html in Variables.scss
+// Function to convert px value into rem
+@function size($target, $context: $base-size) {
+  @return ($target / $context) * 1rem;
+}
+// Usage margin-top: size(40);
+
+
+// Placeholders
+@mixin placeholder {
+	$placeholders: ":-webkit-input" ":-moz" "-moz" "-ms-input";
+	@each $placeholder in $placeholders {
+		&:#{$placeholder}-placeholder {
+			@content;
+		}
+	}
+}
+// Usage: @include placeholder { color: red; }
+
+
+// Background Cover Image
+@mixin cover-background {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+/* Usage
+div {
+  background-image: url("cute-doggo.png");
+  @include cover-background;
+}
+*/
+
+// Font Face
+// Quickly add font-face with all sources ( Embedded OpenType, WOFF, TrueType, and SVG) in one command
+@mixin font-face($font-name, $path, $weight: normal, $style: normal) {
+  @font-face {
+    font-family: quote($font-name);
+    src: url($path+".eot");
+    src: url($path+".eot?#iefix") format("embedded-opentype"), url($path+".woff")
+        format("woff"), url($path+".ttf") format("truetype"), url($path+".svg##{$font-name}")
+        format("svg");
+    font-weight: $weight;
+    font-style: $style;
+  }
+}
+
+// Usage: @include font-face(Roboto, "./assets/Roboto", normal, normal);
