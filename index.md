@@ -1,1 +1,6 @@
-HOME
+---
+title: Home
+layout: default
+---
+
+HOME CONTENT

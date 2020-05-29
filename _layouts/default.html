@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% include head.html %}
+
+    <body class="{% if page.style %}{{ page.style }} {% endif %}">
+        <!--[if IE]>
+            {% include browser-bar.html %}
+        <![endif]-->
+    
+        <div class="main-container">
+            {% include nav.html %}
+
+            {{ content }}
+
+            {% include social.html %}
+
+            {% include footer.html %}
+        </div>
+    </body>
+</html>
