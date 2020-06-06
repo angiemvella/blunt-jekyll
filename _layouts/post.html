@@ -25,6 +25,23 @@ layout: default
 
         {{ content }}
 
+        {% if site.share %}
+            {% include share.html %}
+        {% endif %}
+
+        {% if site.disqus %}
+            {% include disqus.html %}
+        {% endif %}
+
+        <div class="Previous-next">
+            {% if page.previous.url %}
+              <a class="previous" href="{{page.previous.url}}">&laquo; {{page.previous.title}}</a>
+            {% endif %}
+            {% if page.next.url %}
+              <a class="next" href="{{page.next.url}}">{{page.next.title}} &raquo;</a>
+            {% endif %}
+          </div>
+
         {% if page.related_posts.size > 0 %}
             <h2>Related Posts</h2>
 

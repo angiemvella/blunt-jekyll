@@ -1,0 +1,12 @@
+- title: Home
+  href: /
+- title: About
+  href: "/about/"
+- title: Contact
+  href: /contact/
+- title: Posts
+  subcategories:
+    - subtitle: "Example 1"
+      subhref: #
+    - subtitle: "Example 2"
+      subhref: #

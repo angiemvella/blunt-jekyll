@@ -1,0 +1,34 @@
+{% if site.form_netlify %}  
+    <!-- https://docs.netlify.com/forms/setup/#html-forms -->
+    <form name="contact" method="POST" data-netlify="true">
+        <label for="full-name">Full Name*</label>
+        <input id="full-name" name="full-name" type="text" required>
+
+        <label for="email">Email*</label>
+        <input id="email" name="email" type="text" required>
+
+        <label for="message">Message*</label>
+        <textarea id="message" name="message"></textarea>
+
+        <button type="submit" role="button">Send</button>
+    </form>
+{% endif %}
+
+{% if site.form_formspree %}
+    <!-- https://help.formspree.io/ -->
+    <form action="https://formspree.io/{{ site.email }}" method="POST" role="form">
+        <label for="full-name">Full Name*</label>
+        <input id="full-name" name="full-name" type="text" required>
+
+        <label for="email">Email*</label>
+        <input id="email" name="email" type="text" required>
+
+        <label for="message">Message*</label>
+        <textarea id="message" name="message"></textarea>
+
+        <input name="_gotcha" style="display: none" type="text">
+
+        <input value="Send Message" role="button" type="submit" class="button">
+        <input name="_next" value="{{ site.baseurl }}/thankyou.html" type="hidden">
+    </form>
+{% endif %}

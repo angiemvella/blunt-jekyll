@@ -17,9 +17,6 @@
     <meta name="msapplication-TileColor" content="#1b1b1b">
     <meta name="theme-color" content="#ffffff">
 
-    <!-- STYLESHEETS -->
-    <link rel="stylesheet" href="{{ site.baseurl }}/assets/styles/style.css">
-
     <!-- FACEBOOK OPEN GRAPH -->
     <meta property="og:title" content="{{ site.title }}">
     <meta property="og:url" content="{{ site.baseurl }}">
@@ -27,4 +24,11 @@
     <meta property="og:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
     <meta property="og:type" content="website">
     <meta property="og:image" content="{{ site.baseurl }}/assets/images/[TODO].jpg">
+
+    <!-- STYLESHEETS -->
+    <link rel="stylesheet" href="{{ site.baseurl }}/assets/styles/style.css">
+
+    {% if site.cookieconsent %}
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css">
+    {% endif %}
 </head>

@@ -19,9 +19,6 @@
     <meta name="msapplication-TileColor" content="#1b1b1b">
     <meta name="theme-color" content="#ffffff">
 
-    <!-- STYLESHEETS -->
-    <link rel="stylesheet" href="/assets/styles/style.css">
-
     <!-- FACEBOOK OPEN GRAPH -->
     <meta property="og:title" content="Blunt - Jekyll">
     <meta property="og:url" content="">
@@ -29,6 +26,13 @@
     <meta property="og:description" content="Base boilerplate for Jekyll">
     <meta property="og:type" content="website">
     <meta property="og:image" content="/assets/images/[TODO].jpg">
+
+    <!-- STYLESHEETS -->
+    <link rel="stylesheet" href="/assets/styles/style.css">
+
+    
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css">
+    
 </head>
 
     <body class="">
@@ -38,17 +42,89 @@
         <![endif]-->
     
         <div class="main-container">
+            <nav>
+	
+		
+			<li class="active">
+				<a href="">Home</a>
+			</li>
+		
+	
+		
+			<li>
+				<a href="http://localhost:4000/about/">About</a>
+			</li>
+		
+	
+		
+			<li>
+				<a href="http://localhost:4000/contact/">Contact</a>
+			</li>
+		
+	
+		
+			<li>
+				<a href="http://localhost:4000">Posts ▼</a>
+
+				<ul>
+					
+						<li><a href="http://localhost:4000">Example 1</a></li>
+					
+						<li><a href="http://localhost:4000">Example 2</a></li>
+					
+				</ul>
+			</li>
+		
+	
+</nav>
+
+            <!-- post list -->
+
+<li><a href="/blog/post-4.html"><h3>Post 4</h3></a></li>
+
+<li><a href="/blog/post-3.html"><h3>Post 3</h3></a></li>
+
+
+
+<!-- pagination -->
+
+<div class="pagination">
+  
+    <span>&laquo; Prev</span>
+  
+
+  
+    
+      <span class="webjeda">1</span>
+    
+  
+    
+      <a href="/page2/">2</a>
+    
+  
+
+  
+    <a href="/page2/">Next &raquo;</a>
+  
+</div>
+
+
             
 
-            <p>HOME CONTENT</p>
+            
+
 
 
             <ul class="social">
     <li><a href="mailto:"><img src="/assets/images/email.svg" alt="Email Us"></a></li>
-    <li><a href=""><img src="/assets/images/facebook.svg" alt="Find Us on Facebook"></a></li>
-    <li><a href=""><img src="/assets/images/twitter.svg" alt="Follow Us on Twitter"></a></li>
-    <li><a href=""><img src="/assets/images/linkedin.svg" alt="Follow Us on Linked In"></a></li>
-    <li><a href=""><img src="/assets/images/youtube.svg" alt="Subscribe on YouTube"></a></li>
+    <li><a href=""><img src="/assets/images/facebook.svg" alt="Blunt - Jekyll on Facebook"></a></li>
+    <li><a href=""><img src="/assets/images/twitter.svg" alt="Blunt - Jekyll on Twitter"></a></li>
+    <li><a href=""><img src="/assets/images/linkedin.svg" alt="Blunt - Jekyll on Linked In"></a></li>
+    <li><a href=""><img src="/assets/images/youtube.svg" alt="Blunt - Jekyll on YouTube"></a></li>
+    <li><a href=""><img src="/assets/images/github.svg" alt="Blunt - Jekyll on Github"></a></li>
+    <li><a href=""><img src="/assets/images/instagram.svg" alt="Blunt - Jekyll on Instagram"></a></li>
+    <li><a href=""><img src="/assets/images/pinterest.svg" alt="Blunt - Jekyll on Pinterest"></a></li>
+	<li><a href=""><img src="/assets/images/reddit.svg" alt="Blunt - Jekyll on Reddit"></a></li>
 </ul>
 
             <footer class="main-footer">
@@ -59,6 +135,41 @@
 
 <script src="/assets/scripts/main.js" type="text/javascript"></script>
 <script src="/assets/scripts/plugins.js" type="text/javascript"></script>
+
+
+    <!-- https://www.osano.com/cookieconsent/download/ -->
+    <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false"></script>
+
+    <script>
+        window.cookieconsent.initialise({
+            "palette": {
+              "popup": {
+                "background": "#000"
+              },
+              "button": {
+                "background": "#f1d600"
+              }
+            },
+            "theme": "edgeless",
+            "position": "top",
+            "static": true
+          });
+    </script>
+
+
+
+    <!-- https://developers.google.com/analytics/devguides/collection/analyticsjs -->
+    <script>
+        window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+        ga('create', 'UA-XXXXX-Y', 'auto');
+        ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>    
+
+
+
+
+
         </div>
     </body>
 </html>
